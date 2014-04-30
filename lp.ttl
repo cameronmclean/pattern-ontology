@@ -5,26 +5,103 @@
 # This document therefore only covers the intrinsic core pattern elements, and is intended to be extsnsible and evolvable, and to describe design patterns independent of thier 
 # specific subject domains.  
 
+# I have copied the layout and many ideas here from the BBC food ontology - http://www.bbc.co.uk/ontologies/fo
+# made by Rija Menage, Oliver Bartlett, Philip Lamond, Andrew Robinson and Rob Styles - thanks folks for the inspiration
+
+
 @base <http://purl.org/ontology/lp/> .
 
+@prefix lp: <<http://purl.org/ontology/lp/> .
 
+@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+# @prefix v: <http://rdf.data-vocabulary.org/#> .  << replaced by schema.org?
+# @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix po: <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#>
+
+# @prefix provenance:  <http://www.bbc.co.uk/ontologies/provenance/> .
 
 
 ###################################
 # General Schema Info
 ###################################
 
+lp:
+	a owl:Ontology ;
+	dcterms:title "Design Pattern Core Ontology"@en ;
+	rdfs:label "Design Pattern Core Ontology"^^xsd:string ;
+	rdfs:comment "A simple vocabulary for describing design patterns."@en ;
+	foaf:maker <#cam> ;
+	dcterms:created "2014-04-30"^^xsd:date ;
+	dcterms:license <http://creativecommons.org/licenses/by/4.0#id> ;
+#	provenance:canonicalLocation
+#              "https://wherever.it.ends.up/lp.ttl"^^xsd:string ;
+#   provenance:version "1.0"^^xsd:double ;
+#   provenance:public "true"^^xsd:boolean ;
+#   owl:imports vs: , dc: , dcterms: , foaf: , provenance: ;      <<<<<<<<<<< which ontologies do I need to import fully??
+ 	owl:imports po: ;
+#    owl:versionIRI <http://purl.org/ontology/lp/1.0> ;
+#    owl:versionInfo "1.0"^^xsd:string .
 
 
+<#cam> a foaf:Person ;
+	foaf:name "Cameron McLean" .
 
 
 ###################################
 #  Classes
 ###################################
 
+lp:DesignPattern a owl:Class ;
+	rdfs:label "Design Patten"@en ;
+	rdfs:comment "A design pattern is a... "@en ;
+	po:hasPart lp:Force ;
+	rdfs:isDefinedBy lp: .
 
+lp:Force a owl:Class ;
+	po:partOf lp:DesignPattern ;
+	rdfs:label "Force"@en ;
+	rdfs:comment "A 'force' is the term used to describe things ... "@en ;
+	rdfs:isDefinedBy lp: .
 
+lp:Problem a owl:Class ;
+	po:partOf lp:DesignPattern ;
+	rdfs:label "Problem"@en ;
+	rdfs:comment "A problem describes ...."@en ;
+	rdfs:isDefinedBy lp: .
 
+lp:Context a owl:Class ;
+	po:partOf lp:DesignPattern ;
+	rdfs:label "Context"@en ;
+	rdfs:comment "The context describes things ... "@en ;
+	rdfs:isDefinedBy lp: .
+
+lp:Solution a owl:Class ;
+	po:partOf lp:DesignPattern ;
+	rdfs:label "Solution"@en ;
+	rdfs:comment "The solution describes things ... "@en ;
+	rdfs:isDefinedBy lp: .
+
+lp:Rationale a owl:Class ;
+	po:partOf lp:DesignPattern ;
+	rdfs:label "Rationale"@en ;
+	rdfs:comment "The rationale describes things ... "@en ;
+	rdfs:isDefinedBy lp: .
+
+lp:Pictogram a owl:Class ;
+	po:partOf lp:DesignPattern ;
+	po:partOf lp:Force ;
+	rdfs:label "Pictogram"@en ;
+	rdfs:comment "A pictogram provides a visual depiction of ..."@en ;
+	rdfs:isDefinedBy lp: .
 
 ###################################
 #  Object Properties
