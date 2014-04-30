@@ -11,21 +11,21 @@
 
 @base <http://purl.org/ontology/lp/> .
 
-@prefix lp: <<http://purl.org/ontology/lp/> .
+@prefix lp: <<http://purl.org/ontology/lp/#> .
 
-@prefix dcmit: <http://purl.org/dc/dcmitype/> .
+# @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+# @prefix dctypes: <http://purl.org/dc/dcmitype/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-# @prefix v: <http://rdf.data-vocabulary.org/#> .  << replaced by schema.org?
+# @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+# @prefix v: <http://rdf.data-vocabulary.org/#> .  # << replaced by schema.org?
 # @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dc:      <http://purl.org/dc/elements/1.1/> .
-@prefix po: <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#>
+# @prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix po: <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#> .
 
 # @prefix provenance:  <http://www.bbc.co.uk/ontologies/provenance/> .
 
@@ -64,6 +64,11 @@ lp:DesignPattern a owl:Class ;
 	rdfs:label "Design Patten"@en ;
 	rdfs:comment "A design pattern is a... "@en ;
 	po:hasPart lp:Force ;
+	po:hasPart lp:Problem ;
+	po:hasPart lp:Context ;
+	po:hasPart lp:Solution ;
+	po:hasPart lp:Rationale ;
+	po:hasPart lp:Pictogram ;
 	rdfs:isDefinedBy lp: .
 
 lp:Force a owl:Class ;
@@ -103,14 +108,75 @@ lp:Pictogram a owl:Class ;
 	rdfs:comment "A pictogram provides a visual depiction of ..."@en ;
 	rdfs:isDefinedBy lp: .
 
+lp:Reference a owl:Class ;
+	po:PartOf lp:DesignPattern ;
+	rdfs:label "Reference"@en ;
+	rdfs:comment "A reference is the biliographic entity that supplies the justification for a solution and its rationale ..."
+	rdfs:isDefinedBy lp: .
+
+
 ###################################
 #  Object Properties
 ###################################
 
+# Pattern Relationships
+
+lp:uses a owl:ObjectProperty ;
+	rdfs:label "uses"@en ;
+	rdfs:comment "The 'uses' property relates a design pattern to another pattern that it uses in its solution"@en ;
+	rdfs:range lp:DesignPattern ;
+	rdfs:domain lp:DesignPattern ;
+	owl:inverseOf lp:UsedBy
+	rdfs:isDefinedBy lp: .
+
+lp:usedBy a owl:ObjectProperty ;
+	rdfs:label "used by"@en ;
+	rdfs:comment "The 'usedBy' property relates a design pattern to another pattern that uses it in its solution"@en ;
+	rdfs:range lp:DesignPattern ;
+	rdfs:domain lp:DesignPattern ;
+	owl:inverseOf lp:uses ;
+	rdfs:isDefinedBy lp: .
+
+lp:upstreamOf a owl:ObjectProperty ;
+	rdfs:label "upstream of"@en ;
+	rdfs:comment "The 'upstreamOf' property relates a design pattern to smaller, more specific/granualar, or other patterns that might be considered after applying this one"@en ;
+	rdfs:range lp:DesignPattern ;
+	rdfs:domain lp:DesignPattern ;
+	owl:inverseOf lp:downstreamOf ;
+	rdfs:isDefinedBy lp: .
+
+lp:downstreamOf a owl:ObjectProperty ;
+	rdfs:label "downstream ff"@en ;
+	rdfs:comment "The 'downstreamOf' property relates a design pattern to larger, more general/abstract, or other patterns that might be considered before applying this one"@en ;
+	rdfs:range lp:DesignPattern ;
+	rdfs:domain lp:DesignPattern ;
+	owl:inverseOf lp:upstreamOf ;
+	rdfs:isDefinedBy lp: .
+
+lp:relatedTo a owl:ObjectProperty ;
+	rdfs:label "related to"@en ;
+	rdfs:comment "The 'related' property provides a generic way of linking patterns that might be similar, relevent, alternative, or otherwise of interest"@en ;
+	rdfs:range lp:DesignPattern ;
+	rdfs:domain lp:DesignPattern ;
+	rdfs:isDefinedBy lp: .
+
+lp:incompatibleWith a owl:ObjectProperty ;
+	rdfs:label "incompatible with"@en ;
+	rdfs:comment "The 'incompatible' property relates design patterns that cannont be used together in the same larger sequence. Use of one will prevent the use of another."@en ;
+	rdfs:range lp:DesignPattern ;
+	rdfs:domain lp:DesignPattern ;
+	rdfs:isDefinedBy lp: .
 
 
+# Relationships between pattern/force and external resources
+
+lp:exemplifiedBy a owl:ObjectProperty ;
+	rdfs:label "exemplified by"@en ;
+	rdfs:comment "The 'exemplified by' property is used to relate an overall pattern or a force to other resources that are instances of pattern occurances or solutions to forces in the real world"@en ;
+	rdfs:isDefinedBy lp: .
 
 
 ###################################
 #  Datatype Properties
 ###################################
+
