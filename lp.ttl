@@ -11,7 +11,7 @@
 
 @base <http://purl.org/ontology/lp/> .
 
-@prefix lp: <<http://purl.org/ontology/lp/#> .
+@prefix lp: <<http://purl.org/ontology/lp/> .
 
 # @prefix dcmit: <http://purl.org/dc/dcmitype/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -47,7 +47,7 @@ lp:
 #   provenance:version "1.0"^^xsd:double ;
 #   provenance:public "true"^^xsd:boolean ;
 #   owl:imports vs: , dc: , dcterms: , foaf: , provenance: ;      <<<<<<<<<<< which ontologies do I need to import fully??
- 	owl:imports po: ;
+ 	owl:imports po: ;.
 #    owl:versionIRI <http://purl.org/ontology/lp/1.0> ;
 #    owl:versionInfo "1.0"^^xsd:string .
 
@@ -111,7 +111,7 @@ lp:Pictogram a owl:Class ;
 lp:Reference a owl:Class ;
 	po:PartOf lp:DesignPattern ;
 	rdfs:label "Reference"@en ;
-	rdfs:comment "A reference is the biliographic entity that supplies the justification for a solution and its rationale ..."
+	rdfs:comment "A reference is the biliographic entity that supplies the justification for a solution and its rationale ..." ;
 	rdfs:isDefinedBy lp: .
 
 
@@ -126,7 +126,7 @@ lp:uses a owl:ObjectProperty ;
 	rdfs:comment "The 'uses' property relates a design pattern to another pattern that it uses in its solution"@en ;
 	rdfs:range lp:DesignPattern ;
 	rdfs:domain lp:DesignPattern ;
-	owl:inverseOf lp:UsedBy
+	owl:inverseOf lp:UsedBy ;
 	rdfs:isDefinedBy lp: .
 
 lp:usedBy a owl:ObjectProperty ;
@@ -146,7 +146,7 @@ lp:upstreamOf a owl:ObjectProperty ;
 	rdfs:isDefinedBy lp: .
 
 lp:downstreamOf a owl:ObjectProperty ;
-	rdfs:label "downstream ff"@en ;
+	rdfs:label "downstream of"@en ;
 	rdfs:comment "The 'downstreamOf' property relates a design pattern to larger, more general/abstract, or other patterns that might be considered before applying this one"@en ;
 	rdfs:range lp:DesignPattern ;
 	rdfs:domain lp:DesignPattern ;
