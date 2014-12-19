@@ -42,11 +42,8 @@ lp:
 	foaf:maker <#cam> ;
 	dcterms:created "2014-04-30"^^xsd:date ;
 	dcterms:license <http://creativecommons.org/licenses/by/4.0#id> ;
-#	provenance:canonicalLocation
-#              "https://wherever.it.ends.up/lp.ttl"^^xsd:string ;
-#   provenance:version "1.0"^^xsd:double ;
-#   provenance:public "true"^^xsd:boolean ;
-#   owl:imports vs: , dc: , dcterms: , foaf: , provenance: ;      <<<<<<<<<<< which ontologies do I need to import fully??
+
+#   which ontologies do I need to import fully??
  	owl:imports po: ;.
 #    owl:versionIRI <http://purl.org/ontology/lp/1.0> ;
 #    owl:versionInfo "1.0"^^xsd:string .
@@ -69,6 +66,7 @@ lp:DesignPattern a owl:Class ;
 	po:hasPart lp:Solution ;
 	po:hasPart lp:Rationale ;
 	po:hasPart lp:Pictogram ;
+	po:hasPart lp:Reference ;
 	rdfs:isDefinedBy lp: .
 
 lp:Force a owl:Class ;
