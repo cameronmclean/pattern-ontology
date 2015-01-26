@@ -72,8 +72,7 @@ lp:Force a owl:Class ;
 lp:Contributor a owl:Class ;
 	dcterms:partOf lp:DesignPattern ;
 	rdfs:label "Contributor"@en ;
-	rdfs:comment "A person who creates or edits design patterns"@en ;
-	a foaf:Person
+	rdfs:comment "An identifier and reference to person who creates or edits design patterns"@en ;
 	rdfs:isDefinedBy lp: .
 
 lp:Reference a owl:Class ;
