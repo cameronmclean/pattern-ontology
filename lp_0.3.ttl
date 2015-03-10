@@ -48,13 +48,13 @@
 
 :DesignPattern a owl:Class ;
 	rdfs:label "Design Patten"@en ;
-	rdfs:comment "A design pattern is a... "@en ;
+	rdfs:comment "A design pattern is a structured description that captures expert knowledge and solutions to recurring problems enabling the generalisation and communication of design knowledge."@en ;
 	rdfs:isDefinedBy : .
 
 :Force rdf:type owl:Class ;
 	dcterms:partOf :DesignPattern ;
 	rdfs:label "Force"@en ;
-	rdfs:comment "A 'force' is the term used to describe things ... "@en ;
+	rdfs:comment "A 'force' is the term used to describe constraints imposed by a pattern context that shape both the problem and how it should be solved."@en ;
 	rdfs:isDefinedBy : .
 
 :Contributor rdf:type owl:Class ;
@@ -76,7 +76,7 @@
 
 :hasForce rdf:type owl:ObjectProperty ;
 	rdfs:label "force"@en ;
-	rdfs:comment "A force is a recurring env factor within the context that shapes the problem and solution."@en ;
+	rdfs:comment "Relates a named Force to it's parent/specific design pattern."@en ;
 	rdfs:domain :DesignPattern ;
 	rdfs:range :Force ;
 	rdfs:isDefinedBy : .
@@ -94,21 +94,21 @@
 
 :hasContext rdf:type owl:DatatypeProperty ;
 	rdfs:label "context"@en ;
-	rdfs:comment "The context describes..."@en ;
+	rdfs:comment "The context describes the original configuration of the system in which the problem occurs."@en ;
 	rdfs:domain :DesignPattern ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy : .
 
 :hasSolution rdf:type owl:DatatypeProperty ;
 	rdfs:label "solution"@en ;
-	rdfs:comment "The solution describes things ... "@en ;
+	rdfs:comment "The solution describes how to resolve the forces that create the problem."@en ;
 	rdfs:domain :DesignPattern ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy : .
 
 :hasRationale rdf:type owl:DatatypeProperty ;
 	rdfs:label "rationale"@en ;
-	rdfs:comment "The rationale describes things ... "@en ;
+	rdfs:comment "The rationale describes the evidence and reasoning as to why the problem/forces exist and why the solution works."@en ;
 	rdfs:domain :DesignPattern ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy : .

@@ -1,105 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF
-	xmlns="http://purl.org/NET/labpatterns#"
-	xmlns:dcterms="http://purl.org/dc/terms/"
-	xmlns:foaf="http://xmlns.com/foaf/0.1/"
-	xmlns:owl="http://www.w3.org/2002/07/owl#"
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-	xmlns:dc="http://purl.org/dc/elements/1.1/">
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-	<dcterms:title xml:lang="en">Design Pattern Core Ontology</dcterms:title>
-	<rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Design Pattern Core Ontology</rdfs:label>
-	<rdfs:comment xml:lang="en">A simple vocabulary for describing design patterns.</rdfs:comment>
-	<foaf:maker rdf:resource="http://purl.org/NET/labpatterns#cam"/>
-	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-03-10</dcterms:created>
-	<dcterms:license rdf:resource="http://creativecommons.org/licenses/by/4.0#id"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#cam">
-	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-	<orcidId xmlns="http://vivoweb.org/ontology/core#" rdf:resource="http://orcid.org/0000-0002-9836-3824"/>
-	<foaf:name>Cameron McLean</foaf:name>
-	<foaf:homepage rdf:resource="http://cameronmclean.github.io"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#DesignPattern">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-	<rdfs:label xml:lang="en">Design Patten</rdfs:label>
-	<rdfs:comment xml:lang="en">A design pattern is a... </rdfs:comment>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#Force">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-	<dcterms:partOf rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
-	<rdfs:label xml:lang="en">Force</rdfs:label>
-	<rdfs:comment xml:lang="en">A 'force' is the term used to describe things ... </rdfs:comment>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#Contributor">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-	<rdfs:label xml:lang="en">Contributor</rdfs:label>
-	<rdfs:comment xml:lang="en">An identifier and reference to a person who creates or edits design patterns.</rdfs:comment>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#Reference">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-	<dcterms:partOf rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
-	<rdfs:label xml:lang="en">Reference</rdfs:label>
-	<rdfs:comment xml:lang="en">A bibliographic record that contains evidence of design pattern concepts or rationale.</rdfs:comment>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasForce">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-	<rdfs:label xml:lang="en">force</rdfs:label>
-	<rdfs:comment xml:lang="en">A force is a recurring env factor within the context that shapes the problem and solution.</rdfs:comment>
-	<rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
-	<rdfs:range rdf:resource="http://purl.org/NET/labpatterns#Force"/>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasProblem">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-	<rdfs:label xml:lang="en">problem</rdfs:label>
-	<rdfs:comment xml:lang="en">The problem is concise statement that summarises the situation that the pattern resolves.</rdfs:comment>
-	<rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
-	<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasContext">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-	<rdfs:label xml:lang="en">context</rdfs:label>
-	<rdfs:comment xml:lang="en">The context describes...</rdfs:comment>
-	<rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
-	<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasSolution">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-	<rdfs:label xml:lang="en">solution</rdfs:label>
-	<rdfs:comment xml:lang="en">The solution describes things ... </rdfs:comment>
-	<rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
-	<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasRationale">
-	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-	<rdfs:label xml:lang="en">rationale</rdfs:label>
-	<rdfs:comment xml:lang="en">The rationale describes things ... </rdfs:comment>
-	<rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
-	<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-	<rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
-</rdf:Description>
-
+   xmlns:core="http://vivoweb.org/ontology/core#"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#Force">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Force</rdfs:label>
+    <dcterms:partOf rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
+    <rdfs:comment xml:lang="en">A 'force' is the term used to describe constraints imposed by a pattern context that shape both the problem and how it should be solved.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasRationale">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
+    <rdfs:label xml:lang="en">rationale</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">The rationale describes the evidence and reasoning as to why the problem/forces exist and why the solution works.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#cam">
+    <foaf:name>Cameron McLean</foaf:name>
+    <core:orcidId rdf:resource="http://orcid.org/0000-0002-9836-3824"/>
+    <foaf:homepage rdf:resource="http://cameronmclean.github.io"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Design Pattern Core Ontology</rdfs:label>
+    <dcterms:title xml:lang="en">Design Pattern Core Ontology</dcterms:title>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-03-10</dcterms:created>
+    <rdfs:comment xml:lang="en">A simple vocabulary for describing design patterns.</rdfs:comment>
+    <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/4.0#id"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <foaf:maker rdf:resource="http://purl.org/NET/labpatterns#cam"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#Reference">
+    <rdfs:comment xml:lang="en">A bibliographic record that contains evidence of design pattern concepts or rationale.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Reference</rdfs:label>
+    <dcterms:partOf rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#DesignPattern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A design pattern is a structured description that captures expert knowledge and solutions to recurring problems enabling the generalisation and communication of design knowledge.</rdfs:comment>
+    <rdfs:label xml:lang="en">Design Patten</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasSolution">
+    <rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">The solution describes how to resolve the forces that create the problem.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+    <rdfs:label xml:lang="en">solution</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#Contributor">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:label xml:lang="en">Contributor</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">An identifier and reference to a person who creates or edits design patterns.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasForce">
+    <rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+    <rdfs:range rdf:resource="http://purl.org/NET/labpatterns#Force"/>
+    <rdfs:comment xml:lang="en">Relates a named Force to it's parent/specific design pattern.</rdfs:comment>
+    <rdfs:label xml:lang="en">force</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasProblem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">problem</rdfs:label>
+    <rdfs:comment xml:lang="en">The problem is concise statement that summarises the situation that the pattern resolves.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+    <rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/NET/labpatterns#hasContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">context</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/NET/labpatterns#"/>
+    <rdfs:comment xml:lang="en">The context describes the original configuration of the system in which the problem occurs.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/NET/labpatterns#DesignPattern"/>
+  </rdf:Description>
 </rdf:RDF>
+
