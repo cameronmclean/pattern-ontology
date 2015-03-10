@@ -10,7 +10,7 @@
 # also Pedro Szekely's blog post got me started without having to think too much http://pedroszekely.blogspot.co.nz/2013/06/writing-ontologies-in-turtle.html
 
 
-@prefix : <http://purl.org/ontology/lp#> .
+@prefix : <http://purl.org/NET/labpatterns#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
