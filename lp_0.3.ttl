@@ -1,0 +1,114 @@
+# Design Pattern core concepts ontology
+# This document defines and provides the vocabulary to talk about common design pattern elements and their relations
+# Many aspects of design patterns can be descibed using existing vocabularies eg dublin core - and where suitable we prefer to use these terms directly rather than invent 
+# new subclasses of them here
+# This document therefore only covers the intrinsic core pattern elements, and is intended to be extsnsible and evolvable, and to describe design patterns independent of thier 
+# specific subject domains.  
+
+# I have copied the layout and a few ideas here from the BBC food ontology - http://www.bbc.co.uk/ontologies/fo
+# made by Rija Menage, Oliver Bartlett, Philip Lamond, Andrew Robinson and Rob Styles - thanks folks for the inspiration to get started with this doc...
+# also Pedro Szekely's blog post got me started without having to think too much http://pedroszekely.blogspot.co.nz/2013/06/writing-ontologies-in-turtle.html
+
+
+@prefix : <http://purl.org/NET/labpatterns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+
+
+###################################
+# General Schema Info
+###################################
+
+:
+	rdf:type owl:Ontology ;
+	dcterms:title "Design Pattern Core Ontology"@en ;
+	rdfs:label "Design Pattern Core Ontology"^^xsd:string ;
+	rdfs:comment "A simple vocabulary for describing design patterns."@en ;
+	foaf:maker :cam ;
+	dcterms:created "2015-03-10"^^xsd:date ;
+	dcterms:license <http://creativecommons.org/licenses/by/4.0#id> .
+
+
+
+:cam rdf:type foaf:Person ;
+	<http://vivoweb.org/ontology/core#orcidId> <http://orcid.org/0000-0002-9836-3824> ;
+	foaf:name "Cameron McLean" ;
+	foaf:homepage <http://cameronmclean.github.io> .
+
+
+###################################
+#  Classes
+###################################
+
+:DesignPattern a owl:Class ;
+	rdfs:label "Design Patten"@en ;
+	rdfs:comment "A design pattern is a... "@en ;
+	rdfs:isDefinedBy : .
+
+:Force rdf:type owl:Class ;
+	dcterms:partOf :DesignPattern ;
+	rdfs:label "Force"@en ;
+	rdfs:comment "A 'force' is the term used to describe things ... "@en ;
+	rdfs:isDefinedBy : .
+
+:Contributor rdf:type owl:Class ;
+	a foaf:Person ;
+	rdfs:label "Contributor"@en ;
+	rdfs:comment "An identifier and reference to a person who creates or edits design patterns."@en ;
+	rdfs:isDefinedBy : .
+
+:Reference rdf:type owl:Class ;
+	dcterms:partOf :DesignPattern ;
+	rdfs:label "Reference"@en ;
+	rdfs:comment "A bibliographic record that contains evidence of design pattern concepts or rationale."@en ;
+	rdfs:isDefinedBy : .	
+
+##############################
+# ObjectProperties
+##############################
+
+
+:hasForce rdf:type owl:ObjectProperty ;
+	rdfs:label "force"@en ;
+	rdfs:comment "A force is a recurring env factor within the context that shapes the problem and solution."@en ;
+	rdfs:domain :DesignPattern ;
+	rdfs:range :Force ;
+	rdfs:isDefinedBy : .
+
+###################################
+#  Datatype Properties
+###################################
+
+:hasProblem rdf:type owl:DatatypeProperty ;
+	rdfs:label "problem"@en ;
+	rdfs:comment "The problem is concise statement that summarises the situation that the pattern resolves."@en ;
+	rdfs:domain :DesignPattern ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : .
+
+:hasContext rdf:type owl:DatatypeProperty ;
+	rdfs:label "context"@en ;
+	rdfs:comment "The context describes..."@en ;
+	rdfs:domain :DesignPattern ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : .
+
+:hasSolution rdf:type owl:DatatypeProperty ;
+	rdfs:label "solution"@en ;
+	rdfs:comment "The solution describes things ... "@en ;
+	rdfs:domain :DesignPattern ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : .
+
+:hasRationale rdf:type owl:DatatypeProperty ;
+	rdfs:label "rationale"@en ;
+	rdfs:comment "The rationale describes things ... "@en ;
+	rdfs:domain :DesignPattern ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : .
